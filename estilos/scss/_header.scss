@@ -1,0 +1,299 @@
+//Estilos para el header
+.header{
+    display:flex;
+    flex-direction:column;
+} 
+
+.menu{  
+    background-color:$primary;
+    &__wrapper{
+        padding:1.5rem 0;
+        @include tablet{
+            padding:initial;
+        }
+    }
+    &__grid{
+        display:flex;
+        justify-content:space-between;
+        
+    }
+    &__description{
+        display:block;
+        color:$white;
+        @include tablet{
+            display:none;
+        }
+    }
+    @include tablet{
+        order:2;
+    }
+}
+
+
+.navegation{
+    width:80%;
+    height:100vh;
+    overflow: auto;
+    position:fixed;
+    background-color:rgba(0,0,0,0.5);
+    top: 0;
+    left: -100vw;
+    transition: left 1s;
+    z-index: $zIndex2;
+    @include tablet{
+        position:static;
+        height:initial;
+        width:initial;
+        background-color:initial;
+        width:100%;
+        overflow:initial;
+    }
+    &__close{
+        display:block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        background-color: #000;
+        border-radius: 100%;
+        padding: 1rem;
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 1.8rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include tablet{
+            display:none;
+        }
+    }
+    &__list{ 
+        padding-top:4.5rem;
+        list-style-type:none;
+        @include tablet{
+            padding:initial;
+            display:flex;
+            justify-content:center;
+        }
+    }
+
+    &__item{
+        border-bottom:.5px solid darken($gray,25%);
+        @include tablet{
+            border-bottom:initial;
+            padding:initial;
+            position:relative;
+        }
+    }
+    &__link{
+        text-decoration:none;
+        color:$white;
+        padding: 1.5rem 0 1.5rem 2.5rem;
+        width:100%;
+        @include tablet{
+            padding:initial;
+            padding:1.5rem;
+            font-size:1.2rem;
+            &:hover{
+                background-color:darken($primary,10%);
+            }
+        }
+        @include desktop{
+            font-size:1.8rem;
+        }
+    }
+    &__link--expandable{
+        padding-right:2.5rem;
+        display:flex;
+        align-items:center;
+        justify-content: space-between;
+        position:relative;
+         @include tablet{
+            display:inline-block;
+            &:hover ~.submenu{
+                display:block;
+            }
+
+            &:after{
+                display:block;
+                content: '';
+                position: absolute;
+                right: 5%;
+                top: 50%;
+                border-top: 5px solid white;
+                border-right: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+                border-left: 5px solid transparent;
+            }
+        } 
+    }
+    &__expandable{
+        text-decoration: none;
+        color: #fff;
+        font-size: 2rem;
+        @include tablet{
+            display:none;
+        }
+    }
+}
+
+.submenu{
+    display:none;
+    background-color: rgba(137, 137, 137, .9);
+    list-style-type:none;
+    z-index: $zIndex3;
+    &__item{ 
+        border-bottom:.5px solid lighten($gray,10%);
+        @include tablet{ 
+            padding:initial;
+            border-bottom:.5px solid lighten($lightGray,25%);
+            &:nth-of-type(5){
+                border-bottom:initial;
+            }
+        }
+        &:nth-of-type(1){
+            border-top:.5px solid lighten($gray,10%);
+            @include tablet{
+                border-top:.5px solid lighten($lightGray,25%);
+            }
+        }
+    }
+    &__link{ 
+        text-decoration:none;
+        color:$white;
+        padding: 1.5rem 0 1.5rem 5rem;
+        width:100%;
+        @include tablet{
+            padding:initial;
+            padding:1.5rem;
+            font-size:1.2rem;
+            color:$black;
+            &:hover{
+                color:$primary;
+            }
+        }
+        @include desktop{
+            font-size:1.8rem;
+        }
+    }
+    @include tablet{
+        background-color:$white;
+        position:absolute;
+        top:100%;
+        left:0; 
+        white-space:nowrap;
+        box-shadow:0 1px 5px 0px rgba(0,0,0,0.35);
+        &:hover{
+            display:block;
+        }
+    }
+}
+.menu-burguer{
+    display:block;
+    width:2.5rem;
+    @include tablet{
+        display:none;
+    }
+}
+
+.info{
+    order:1;
+    background-color:$white;
+    &__wrapper{
+        padding:3rem 0 0 0;
+        @include tablet{
+            padding:0;
+        }
+    }
+    &__grid{
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+        @include tablet{ 
+            justify-content: space-between;
+            column-gap:2rem;
+            flex-direction:row;
+        }
+
+    } 
+    &__logo{
+        padding-top:4rem;
+        font-size:4rem;
+        max-width:50%;
+    }
+    @include tablet{
+
+    }
+} 
+
+.info-contact{
+    display:flex;
+    flex-wrap:wrap;
+    row-gap:1.5rem;
+    text-align:center;    
+    &__number,&__direction{
+        flex:1 0 100%;
+        text-decoration:none;
+        background-color:$primary;
+        color:$white;
+        padding:2rem 1rem;
+        font-size:1.5rem;
+        border-radius:5px;
+        @include tablet{
+            color:initial;
+            padding:initial;
+            border-radius:initial;
+            background-color:initial;
+            flex:0 0 auto;
+        }
+    }
+    &__number{
+        @include tablet{
+            display:flex;
+            column-gap:.8rem;
+            &::before{
+                display:block;
+                content:'';
+                background-image:url(../../images/phone-icon.png);
+                width:2rem;
+                height:2rem;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+        }
+        }
+    }
+    @include tablet{
+        text-align: right;
+        flex-direction:column;
+    }
+}
+ 
+.info-logo{
+    width:25rem;
+}
+
+.social-media{
+    flex: 1 0 auto;
+    display:grid;
+    grid-template-columns:repeat(3,60px);
+    justify-content:center;
+    column-gap:1rem; 
+    &__icon{ 
+        width:100%;
+        background-color:$lightGray;
+        padding:1.5rem;
+        @include tablet{
+            background-color:initial;
+            padding:initial;
+        }
+    }
+    @include tablet{
+        flex:0 0 auto;
+        justify-content:flex-end;
+        grid-template-columns:repeat(3,30px);
+        column-gap:2rem;
+    }
+}

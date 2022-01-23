@@ -1,0 +1,343 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+@import 'globals.scss';
+@import '_header';  
+@import '_footer';
+@import 'utils.scss';  
+// Estilos para el banner
+  
+.banner{ 
+    display:none; 
+    @include tablet{
+        display:block;
+        background-image:url(../../images/banner-image.jpg);
+        background-size:cover;
+        background-position:center;
+        height:55rem;
+        position:relative;
+    }
+    &__info{
+        position:absolute;
+        bottom:30%;
+        right:5%;
+        text-decoration:none;
+        color:$white;
+        background-color:rgba(0,0,0,0.5);
+        padding:1.5rem 1rem;
+        font-size:3rem;
+        max-width:45rem;
+
+    }
+}
+
+//Estilos para  destacados
+
+.featured{
+    padding-top:4.5rem;
+    &__wrapper{
+        @include tablet{
+            margin-top:-80px;
+            position:relative;
+        }
+    }
+    &__grid{
+        @include grid(1,6rem);
+            @include tablet{
+             @include grid(3,0);
+            }
+    } 
+    @include tablet{
+        padding-top:0;
+        padding-bottom:0;
+    }
+}
+
+.card-featured{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    row-gap:3rem;
+    text-decoration:none; 
+    &__container-image{
+        width:25rem;
+        height:25rem;
+        @include tablet{
+            width:20rem;
+            height:20rem;
+        }
+        @include desktop{
+            width:30rem;
+            height:30rem;
+        }
+    }
+    &__image{
+        border-radius:50%;
+        border:1.5rem solid $white;
+    }
+    &__info{
+        font-size:2.2rem;
+        color:$black;
+        font-weight:300;
+    }
+    &:hover{
+        img{
+           border:1.5rem solid rgba(255,255,255,0.3);
+           transition:border 1s ease;
+        }
+
+    }
+}
+
+// Estilos para la bienvenida
+
+.welcome{
+    padding-top:6rem;
+    @include tablet{
+        padding-top:4.5rem;
+    }
+    &__grid{
+        @include grid(1,0); 
+            @include tablet{
+                @include grid(2,0);
+            }
+    }
+}
+.welcome-info{
+    background-color:$primary;
+    text-align:center;
+    color:$white;
+    padding: 2.5rem 1rem;
+    @include tablet{
+        padding:4rem 2rem;
+    }
+    &__paragraph{
+        margin-top:2.5rem;
+    }
+}
+
+//Estilos para los servicios
+
+.services{
+    padding-top:6rem;
+    text-align:center;
+    &__title{
+        margin-bottom:2rem;
+    }
+    &__grid{
+        @include grid(1,2rem);
+            @include tablet{
+                gap:0;
+                @include grid(4,2.5rem);
+            }  
+    }
+    @include tablet{
+        padding-top:4.5rem;
+    }
+}
+
+.card-services{
+    display:flex;
+    flex-direction:column;
+    row-gap:1.5rem;
+    align-items:center;
+    &__container-image{
+        height:30rem;
+        width:100%;
+    }
+    &__title{
+        font-weight:400;
+        font-size:2.2rem;
+    }
+    &__image{
+        border-radius:15px;
+    }
+    &__button{
+        @include button($primary, $white)
+    }
+
+}
+
+// Estilos para los nuevos clientes
+
+.new-clients{
+    padding-top: 6rem;
+    &__grid{
+        @include grid(1,0);
+            @include tablet{
+                @include grid(2,0);
+            }
+    }
+    &__container-image{
+        @include tablet{
+            order:2;
+        }
+    }
+    @include tablet{
+        padding-top:4.5rem;
+    }
+}
+.new-clients-info{
+    background-color:$primary;
+    text-align:center;
+    color:$white;
+    padding: 2.5rem 1rem;
+    @include tablet{
+        padding:4rem 2rem;
+        order:1;
+    }
+    &__paragraph{
+        margin-top:2.5rem;
+    }
+}
+
+//Estilos de nuestros clientes
+.carousel-clients{
+    background-image:url(../../images/our-clients.jpeg);
+    background-repeat: no-repeat;
+    background-position: 30% 30%;
+    background-size: cover;
+    height: 45rem;
+    z-index:$zIndex1;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    position:relative;
+    &__info{
+        text-align:center;
+        color:$white;
+        width:auto;
+        z-index:$zIndex3;
+        @include tablet{
+            width:65%;
+        }
+    }
+    &__paragraph{
+        margin-top:2rem;
+    }
+    &__name{
+        margin-top:2rem;
+        display:inline-block;
+    }
+    &::after{
+        display:block;
+        content:'';
+        background-color:rgba(0,0,0,0.4);
+        position:absolute;
+        top:0;
+        bottom:0;
+        right:0;
+        left:0;
+        width:100%;
+        height:100%;
+        z-index: $zIndex2;
+    }
+}
+
+.carousel-grid{
+    margin-top:5rem;
+    @include grid(4,1rem);
+    grid-template-columns:repeat(4,1.5rem);
+    justify-content:center;
+    &__button{
+        width:1.5rem;
+        height:1.5rem;
+        background-color:$white;
+        border-radius:50%;
+        &:not(:nth-of-type(1)){
+            background-color:darken($white,45);
+        }
+    }
+}
+
+//Estilos para el pie de pagina 
+
+.footer{
+    background-color:$primary;
+    color:$white;
+    padding-top:4.5rem;
+    text-align: center;
+    font-size:1.5rem;
+}
+
+.footer-contact{
+    margin-top:1.5rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    line-height:1.5;
+    @include tablet{
+        flex-direction:row;
+        line-height:initial;
+        align-items: initial;
+        justify-content: center;
+        &__number{
+            border-right: 1px solid $white;
+            padding-right:1rem;
+        }
+        &__address{
+            padding-left:1rem;
+        }
+    }
+}
+
+.right-reserved{
+    margin-top:4.5rem;
+    border-top:1px solid rgba(255,255,255, .5);
+    padding:1.5rem 0;
+    font-size:1.3rem;
+}
+
+
+//Estilos de acerca de nosotros
+
+.about-us{
+    padding-top:6rem;
+    padding-bottom:6rem;
+    text-align:center;
+    &__grid{
+        display:flex;
+        flex-wrap:wrap;
+        row-gap:4.5rem;
+        @include tablet{
+            flex-direction:row;
+            justify-content:space-between;
+            align-items:center;
+        }
+    }
+    @include tablet{
+        padding-top:4.5rem;
+        padding-bottom:4.5rem;
+    }
+} 
+
+.contact-us{
+    flex: 1 0 100%;
+    &__info,&__button{
+        margin-top:1.5rem;
+    }
+    &__button{
+        @include button($primary, $white)
+    }
+    @include tablet{
+        flex: 0 0 40%;
+    }
+}
+.location{
+    flex:1 0 100%;
+    &__map{
+        margin-top:1.5rem;
+        height:10rem;
+        display:block;
+        @include desktop{
+            height:15rem
+        }
+    }
+    @include tablet{
+        flex: 0 0 40%;
+    }
+}
+
+
+
+

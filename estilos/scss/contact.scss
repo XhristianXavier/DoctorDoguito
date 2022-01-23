@@ -1,0 +1,126 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+@import 'globals.scss';
+@import '_header';  
+@import '_footer';
+@import 'utils.scss';  
+
+
+
+
+//Estilos de la pagina de contactanos
+
+.contact{
+    font-size:1.5rem;
+    padding-top:6rem;
+    @include tablet{
+        padding-top:4.5rem;
+    }
+    &__title{
+        margin-bottom:4rem;
+    }
+    &__grid{
+        display:flex;
+        flex-direction:column;
+        row-gap:2.5rem;
+        @include mobile{
+            flex-direction:row;
+            row-gap:0;
+        }
+    }
+}
+
+.contact-info{
+    flex: 1 0 50%;
+    &__company,&__district,&__street{
+      line-height:1.5;
+    }
+    &__company{
+        font-weight:600;
+        color:darken($gray,10%);  
+    } 
+    &__street{
+        margin-bottom:1.5rem;
+    } 
+    &__phone{
+        font-weight:600;
+        color:darken($gray,10%);
+    } 
+    &__text-primary{
+        color:$primary;
+    } 
+}
+
+.contact-hours{
+    flex: 1 0 50%;
+    &__title,&__week,&__saturday{
+        line-height:1.5;
+    }
+    &__title{
+        font-weight:600;
+        color:darken($gray,10%);  
+    }
+}
+
+.contact-map{
+    padding-top:3.5rem;
+    &__title{
+        display:block;
+        font-weight:600;
+        color:darken($gray,10%);
+        margin-bottom:1rem;   
+    }
+    &__ubication{
+        height: 35rem;
+        width: 100%;
+        background-color: #CCC;
+    }
+}
+//Estilos de acerca de nosotros
+
+.about-us{
+    padding-top:6rem;
+    padding-bottom:6rem;
+    text-align:center;
+    &__grid{
+        display:flex;
+        flex-wrap:wrap;
+        row-gap:4.5rem;
+        @include tablet{
+            flex-direction:row;
+            justify-content:space-between;
+            align-items:center;
+        }
+    }
+    @include tablet{
+        padding-top:4.5rem;
+        padding-bottom:4.5rem;
+    }
+} 
+
+.contact-us{
+    flex: 1 0 100%;
+    &__info,&__button{
+        margin-top:1.5rem;
+    }
+    &__button{
+        @include button($primary, $white);
+    }
+    @include tablet{
+        flex: 0 0 40%;
+    }
+}
+.location{
+    flex:1 0 100%;
+    &__map{
+        margin-top:1.5rem;
+        height:10rem;
+        display:block;
+        @include desktop{
+            height:15rem
+        }
+    }
+    @include tablet{
+        flex: 0 0 40%;
+    }
+} 

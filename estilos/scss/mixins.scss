@@ -1,0 +1,39 @@
+
+//Mixins 
+
+@mixin mobile{
+    @media (min-width:$mobile){
+      @content;
+    }
+  }
+  @mixin tablet{ 
+    @media (min-width:$tablet){
+      @content;
+    }
+  }
+  @mixin desktop{
+    @media (min-width:$desktop){
+      @content;
+    }
+  }
+  
+  @mixin grid($columns, $spacing) {
+      display:grid;
+      gap:$spacing;
+      grid-template-columns:repeat($columns,1fr);
+  }
+  
+  @mixin button($bgColor, $colorTexto){
+      color:$colorTexto;
+      padding:1rem 2.5rem;
+      background-color:$bgColor;
+      text-decoration:none;
+      display:inline-block;
+      text-align:center;
+      border-radius:10px;
+      width:80%;
+      &:hover{
+          background-color: darken($bgColor, 10%);
+      }
+      
+  }

@@ -1,0 +1,87 @@
+//Estilos para el pie de pagina 
+
+.footer{
+    background-color:$primary;
+    color:$white;
+    padding-top:4.5rem;
+    text-align: center;
+    font-size:1.5rem;
+}
+
+.footer-contact{
+    margin-top:1.5rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    line-height:1.5;
+    @include tablet{
+        flex-direction:row;
+        line-height:initial;
+        align-items: initial;
+        justify-content: center;
+        &__number{
+            border-right: 1px solid $white;
+            padding-right:1rem;
+        }
+        &__address{
+            padding-left:1rem;
+        }
+    }
+}
+
+.right-reserved{
+    margin-top:4.5rem;
+    border-top:1px solid rgba(255,255,255, .5);
+    padding:1.5rem 0;
+    font-size:1.3rem;
+}
+
+
+//Estilos de acerca de nosotros
+
+.about-us{
+    padding-top:6rem;
+    padding-bottom:6rem;
+    text-align:center;
+    &__grid{
+        display:flex;
+        flex-wrap:wrap;
+        row-gap:4.5rem;
+        @include tablet{
+            flex-direction:row;
+            justify-content:space-between;
+            align-items:center;
+        }
+    }
+    @include tablet{
+        padding-top:4.5rem;
+        padding-bottom:4.5rem;
+    }
+} 
+
+.contact-us{
+    flex: 1 0 100%;
+    &__info,&__button{
+        margin-top:1.5rem;
+    }
+    &__button{
+        @include button($primary, $white)
+    }
+    @include tablet{
+        flex: 0 0 40%;
+    }
+}
+.location{
+    flex:1 0 100%;
+    &__map{
+        margin-top:1.5rem;
+        height:10rem;
+        display:block;
+        @include desktop{
+            height:15rem
+        }
+    }
+    @include tablet{
+        flex: 0 0 40%;
+    }
+}

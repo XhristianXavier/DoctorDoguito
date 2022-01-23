@@ -1,0 +1,16 @@
+//Estilos para animaciones 
+
+.show-navegation{
+    left:0;    
+}
+
+.show-mask{
+    display:block;
+    @include tablet{
+        display:none;
+    }
+}
+
+.show-submenu{
+    display:block;
+}
